@@ -21,14 +21,16 @@ function renderCards(cardArr) {
             <img class='flashCardImage' src= ${card.image}>
         </div>
         <div class="flashcard-back">
-            <h2>${card.name}</h2>
             <img class='flashCardImage' src= ${card.image}>
+            <h2>${card.name}</h2>
         </div>
         `
-        for (let i = 0; i < cardContainer.length; i++) {
-                cardContainer[i].addEventListener('mouseover', function hoverOverCard (e) =>{
-                    console.log (e.target)
-        }
+        cardDiv.addEventListener('mouseover', () => {
+            cardDiv.classList.toggle('hover')
+        })
+        cardDiv.addEventListener('mouseout', () => {
+            cardDiv.classList.toggle('hover')
+        })
         cardDiv.addEventListener('click', flipCard);
         cardContainer.appendChild(cardDiv)
     })
