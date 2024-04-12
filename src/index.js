@@ -79,3 +79,6 @@ form.addEventListener('submit', (e) => {
         .then((data) => renderNewCards([data]))
 })
 
+function renderNewCards () {
+    
+}
