@@ -28,12 +28,12 @@ function renderCards(cardArr) {
         </div>
         `
         for (let i = 0; i < cardContainer.length; i++) {
-                cardContainer[i].addEventListener('mouseover', function hoverOverCard (e) =>{
+                cardContainer[i].addEventListener('mouseover',  (e) =>{
                     console.log (e.target)
-        }
+        })
         cardDiv.addEventListener('click', flipCard);
         cardContainer.appendChild(cardDiv)
-    })
+    }})
 }
 
 function flipCard() {
