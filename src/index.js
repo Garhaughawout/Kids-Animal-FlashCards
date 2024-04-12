@@ -3,18 +3,16 @@
 //flip event
 
 //load Dom//
-
 const cardContainer = document.querySelector('.flashcard-container');
 
 const url = "http://localhost:3000/cards"
 
-//this is a test//
 fetch(url)
-    .then(resp => resp.json())
-    .then(data => renderCard(data))
+.then(resp => resp.json())
+.then(data => renderCards(data))
 
 function renderCards(cardArr) {
-
+console.log(cardArr)
     cardArr.forEach(card => {
         const cardDiv = document.createElement('div')
         cardDiv.className = 'flashcard'
@@ -36,6 +34,7 @@ function renderCards(cardArr) {
 
         })
         cardDiv.addEventListener('click', flipCard);
+console.log(cardDiv)
         cardContainer.appendChild(cardDiv)
     })
 }
@@ -69,13 +68,13 @@ function handleAddNewCard(e) {
     renderCard([newCardObj])
 }
 
-fetch("http://localhost:3000/toys", {
-    method: 'POST',
-    headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newJsonObj)
-})
-    .then((resp) => resp.json())
-    .then((data) => renderNewCard([data]))
+  fetch("http://localhost:3000/toys", {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newJsonObj)
+      })
+        .then((resp) => resp.json())
+        .then((data) => renderNewCards([data]))
