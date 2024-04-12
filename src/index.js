@@ -52,7 +52,7 @@ function renderCard(cardArr) {
     })
 }
 
-const form = document.getElementById("new-card-btn")
+const form = document.getElementsByClassName("add-toy-form")
 
 form.addEventListener('submit', (e) => {
       e.preventDefault()
