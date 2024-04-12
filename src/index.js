@@ -43,9 +43,9 @@ function flipCard() {
 function renderCard(cardArr) {
     const toyContainer = document.getElementById("flashcard-container");
 
-    cardArr.forEach((cardObj)) {
+    cardArr.forEach((cardObj) => {
 //each card
-    }
+    })
 }
 
 const form = document.getElementById('')
