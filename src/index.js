@@ -10,8 +10,8 @@ const url = "http://localhost:3000/cards"
 
 
 fetch(url)
-.then(resp => resp.json())
-.then(data => renderCard(data))
+    .then(resp => resp.json())
+    .then(data => renderCard(data))
 
 function renderCards(cardArr) {
 
@@ -37,7 +37,7 @@ function renderCards(cardArr) {
         })
         cardDiv.addEventListener('click', flipCard);
         cardContainer.appendChild(cardDiv)
-    }})
+    })
 }
 
 function flipCard() {
@@ -48,7 +48,7 @@ function renderCard(cardArr) {
     const toyContainer = document.getElementById("flashcard-container");
 
     cardArr.forEach((cardObj) => {
-//each card
+        //each card
     })
 }
 
@@ -56,25 +56,26 @@ const form = document.getElementById('')
 form.addEventListener('submit', (e) => handleAddNewcard(e))
 
 function handleAddNewCard(e) {
-  e.preventDefault()
+    e.preventDefault()
 
-  console.log(e.target.image.value)
+    console.log(e.target.image.value)
 
-  const newCardObj = {
-    name: e.target.name.value,
-    image: e.target.image.value,
-    id: 0
-  }
+    const newCardObj = {
+        name: e.target.name.value,
+        image: e.target.image.value,
+        id: 0
+    }
 
-  renderCard([newCardObj])}
+    renderCard([newCardObj])
+}
 
-  fetch("http://localhost:3000/toys", {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newJsonObj)
-      })
-        .then((resp) => resp.json())
-        .then((data) => renderNewCard([data]))
+fetch("http://localhost:3000/toys", {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newJsonObj)
+})
+    .then((resp) => resp.json())
+    .then((data) => renderNewCard([data]))
