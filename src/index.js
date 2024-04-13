@@ -44,16 +44,10 @@ function flipCard() {
     this.classList.toggle('flipCard')
 }
 
-function renderCard(cardArr) {
-    const toyContainer = document.getElementById("flashcard-container");
 
-    cardArr.forEach((cardObj) => {
-        //each card
-    })
-}
 
-const form = document.getElementsByClassName("add-toy-form")
-
+const form = document.querySelector('.add-toy-form')
+console.log(form)
 form.addEventListener('submit', (e) => {
       e.preventDefault()
 
@@ -61,13 +55,11 @@ form.addEventListener('submit', (e) => {
 
     const newCardObj = {
         name: e.target.name.value,
-        image: e.target.image.value,
-        id: 0
+        image: e.target.image.value
     }
-
     renderCards([newCardObj])
 
-    fetch("http://localhost:3000/toys", {
+    fetch("http://localhost:3000/cards", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
