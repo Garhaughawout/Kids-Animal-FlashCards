@@ -3,18 +3,17 @@
 //flip event
 
 //load Dom//
-
 const cardContainer = document.querySelector('.flashcard-container');
+
 
 const url = "http://localhost:3000/cards"
 
-
 fetch(url)
-.then(resp => resp.json())
-.then(data => renderCard(data))
+    .then(resp => resp.json())
+    .then(data => renderCards(data))
 
 function renderCards(cardArr) {
-
+    console.log(cardArr)
     cardArr.forEach(card => {
         const cardDiv = document.createElement('div')
         cardDiv.className = 'flashcard'
@@ -36,45 +35,42 @@ function renderCards(cardArr) {
 
         })
         cardDiv.addEventListener('click', flipCard);
+        console.log(cardDiv)
         cardContainer.appendChild(cardDiv)
-    }})
+    })
 }
 
 function flipCard() {
     this.classList.toggle('flipCard')
 }
 
-function renderCard(cardArr) {
-    const toyContainer = document.getElementById("flashcard-container");
 
-    cardArr.forEach((cardObj) => {
-//each card
-    })
-}
 
-const form = document.getElementById('')
-form.addEventListener('submit', (e) => handleAddNewcard(e))
+const form = document.querySelector('.add-toy-form')
+console.log(form)
+form.addEventListener('submit', (e) => {
+      e.preventDefault()
 
-function handleAddNewCard(e) {
-  e.preventDefault()
+    console.log("hi")
 
-  console.log(e.target.image.value)
+    const newCardObj = {
+        name: e.target.name.value,
+        image: e.target.image.value
+    }
+    renderCards([newCardObj])
 
-  const newCardObj = {
-    name: e.target.name.value,
-    image: e.target.image.value,
-    id: 0
-  }
-
-  renderCard([newCardObj])}
-
-  fetch("http://localhost:3000/toys", {
+    fetch("http://localhost:3000/cards", {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newJsonObj)
-      })
+        body: JSON.stringify(newCardObj)
+    })
         .then((resp) => resp.json())
-        .then((data) => renderNewCard([data]))
+        .then((data) => renderNewCards([data]))
+})
+
+function renderNewCards () {
+    
+}
