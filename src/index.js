@@ -25,9 +25,14 @@ function renderCards(cardArr) {
             <img class='flashCardImage' src= ${card.image}>
             <h2>${card.name}</h2>
         </div>
-        // <img class='trash' src=${trashImg} alt='trash'>
+        <div>
+            <img class='trash' src=${trashImg}>
+        </div>
         `
+        const trash = cardDiv.querySelector('.trash')
+        trash.addEventListener('click', deleteCard)
 
+        
         cardDiv.addEventListener('mouseover', () => {
             cardDiv.classList.toggle('hover')
         })
@@ -78,12 +83,11 @@ function renderNewCards () {
     
 }
 
-// function deleteCard() {
-//     fetch(`http://localhost:3000/cards/${card.id}`, {
-//         method: 'DELETE'
-//     })
-//         .then(resp => resp.json())
-//         .then(data => {
-//             this.remove()
-//         })
-// }
+function deleteCard(e) {
+    const card = e.target.closest('.flashcard')
+    card.remove()
+    const id = card.id
+    fetch(`http://localhost:3000/cards/${id}`, {
+        method: 'DELETE'
+    })
+}

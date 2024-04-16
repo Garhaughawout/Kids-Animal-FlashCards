@@ -9,7 +9,13 @@ trashcan icon in lower left corner
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border: none;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .flashcard-header {
@@ -17,13 +23,12 @@ trashcan icon in lower left corner
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     font-size: 1.1rem;
-    font-weight: 00;
+    border-bottom: 1px solid #b6b5b5;
 }
 
 .flashcard-container {
@@ -33,7 +38,6 @@ trashcan icon in lower left corner
     height: 1500px;
     justify-content: center;
     align-items: center;
-    /* border: rgba(0, 0, 0, 0.5) 2.5px solid; */
     margin: 100px auto;
 }
 
@@ -98,6 +102,7 @@ trashcan icon in lower left corner
     height: auto;
     background: #515DA2;
     opacity: .8;
+    margin: 0;
 }
 
 .add-toy-form {
