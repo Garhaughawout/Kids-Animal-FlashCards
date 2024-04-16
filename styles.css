@@ -4,11 +4,18 @@ image of animal on the front with boarder
 trashcan icon in lower left corner 
 */
 
+.body {
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .flashcard-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px;
     background-color: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
     position: fixed;
@@ -17,8 +24,8 @@ trashcan icon in lower left corner
     z-index: 1000;
     font-size: 1.1rem;
     font-weight: 00;
-
 }
+
 .flashcard-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -128,6 +135,17 @@ trashcan icon in lower left corner
     font-size: 18px;
     font-family: monospace;
     margin: 3px;
+  }
+
+
+  .trash {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
   }
   
 

@@ -5,7 +5,7 @@
 //load Dom//
 const cardContainer = document.querySelector('.flashcard-container');
 
-
+const trashImg = "https://cdn-icons-png.flaticon.com/512/2891/2891491.png"
 const url = "http://localhost:3000/cards"
 
 fetch(url)
@@ -25,6 +25,7 @@ function renderCards(cardArr) {
             <img class='flashCardImage' src= ${card.image}>
             <h2>${card.name}</h2>
         </div>
+        // <img class='trash' src=${trashImg} alt='trash'>
         `
 
         cardDiv.addEventListener('mouseover', () => {
@@ -52,9 +53,11 @@ form.addEventListener('submit', (e) => {
       e.preventDefault()
 
     console.log("hi")
+    const lowerName = e.target.name.value.toLowerCase()
+    const upperName = lowerName.charAt(0).toUpperCase() + lowerName.slice(1)
 
     const newCardObj = {
-        name: e.target.name.value,
+        name: upperName,
         image: e.target.image.value
     }
     renderCards([newCardObj])
@@ -74,3 +77,13 @@ form.addEventListener('submit', (e) => {
 function renderNewCards () {
     
 }
+
+// function deleteCard() {
+//     fetch(`http://localhost:3000/cards/${card.id}`, {
+//         method: 'DELETE'
+//     })
+//         .then(resp => resp.json())
+//         .then(data => {
+//             this.remove()
+//         })
+// }
