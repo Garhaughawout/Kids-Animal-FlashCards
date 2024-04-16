@@ -6,11 +6,25 @@ trashcan icon in lower left corner
 .page-header {
     justify-content: center;
     text-align: center;
-    padding: 20px 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    padding: 10px 10px;
     width: 100%;
     z-index: 1000;
-    font-size: 1.1rem;
+    background: #515DA2;
+    opacity: .8;
+}
+
+#title {
+    font-size: 3.5rem;
+}
+
+#label {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#language-select {
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 .flashcard-container {
@@ -108,4 +122,12 @@ trashcan icon in lower left corner
     font-size: 18px;
     font-family: monospace;
     margin: 3px;
+}
+
+#new-card-btn {
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .7);
+    margin-bottom: 2%;
+    padding: 10px 10px;
 }

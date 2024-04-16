@@ -81,7 +81,6 @@ languages.addEventListener("change", (e) => {
         {language.classList.add("hidden")
 if (language ==="" || language ===" "){
     cardContainer.classList.add("hidden")
-//grab the parent of language that is the card and add a hidden class to the card//
     }
 });
     const showLanguages = (languages) => languages.forEach(languages => languages.classList.remove("hidden"));
@@ -103,16 +102,5 @@ if (language ==="" || language ===" "){
     }
 })
 
-
-
-//create drop down menu for language selection 
-//default menu to english
-//3 options on dropdown menu
-//when language is selected, the cards who have a matching class will appear, while the others remain hidden
-
-//create a second language drop down menu in the submit form
-//when submitting a new card, select a language option from dropdown menu in submit form
-//that language is the class identifier
-
-//each card has 3 languages
-//if user input doesnt contain the language, returns with null, ignore the card
+//when a language is selected, automatically flips all cards so no text is showing
+//

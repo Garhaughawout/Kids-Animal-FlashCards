@@ -11,9 +11,9 @@
 
 <body>
     <div class="page-header">
-        <h1>Animal Flash Card Game</h1>
+        <h1 id ="title">Animal Flash Card Game</h1>
         <div class="language-selection">
-            <label for="language-select"> Select a Language:
+            <label for="language-select" id="label"> Select a Language:
                 <select name="languages" id="language-select">
                     <option value=""> Please select an option</option>
                     <option value="English" selected>English</option>
@@ -29,7 +29,7 @@
 
     <div class="form-container">
         <form class="add-toy-form">
-            <h3>Create A New Animal Card!</h3>
+            <h1>Create A New Animal Card!</h1>
 
             <input type="text" name="name" value="" placeholder="Enter a animal's name in english..." class="input-text"
                 autocomplete="off" />
@@ -44,9 +44,9 @@
                 class="input-text" autocomplete="off" />
             <br />
            
-            <h3 style="text-align:center">
+            <h1 style="text-align:center">
                 Have Other Animals You Want To Learn?
-            </h3>
+            </h1>
             <button id="new-card-btn">Submit A New Animal Card!</button>
         </form>
     </div>
