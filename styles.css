@@ -1,24 +1,18 @@
-
 /* boarder around cards
 image of animal on the front with boarder
 trashcan icon in lower left corner 
 */
 
-.flashcard-header {
-    display: flex;
+.page-header {
     justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
+    text-align: center;
+    padding: 20px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
     width: 100%;
     z-index: 1000;
     font-size: 1.1rem;
-    font-weight: 00;
-
 }
+
 .flashcard-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -40,7 +34,7 @@ trashcan icon in lower left corner
     transform-style: preserve-3d;
     transition: all .8s ease;
     margin: 10px auto;
-    
+
 }
 
 .flashcard-front {
@@ -68,14 +62,18 @@ trashcan icon in lower left corner
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 .flipCard {
     transform: rotateY(180deg);
 }
 
 
 .flashCardImage {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin: 10px auto;
 }
 
@@ -86,50 +84,28 @@ trashcan icon in lower left corner
 }
 
 .form-container {
-    padding: 1rem;
-    width: stretch;
     height: auto;
     background: #515DA2;
     opacity: .8;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
 }
 
-.add-toy-form {
-    width: 90%;
-    position: relative;
-    justify-self: center;
-}
-
-  /*submit create card*/
-  .submit {
-    position: relative;
-    background-color: #e04b52;
+#form-language-select {
     border-radius: 5px;
     height: 2rem;
-    width: max-content;
-    color: whitesmoke;
-    font-size: 18px;
-    justify-self: center;
-    font-family: monospace;
-    margin: 3px;
-  }
-
-  /*submit create card*/
-  .submit:hover {
-    background-color: whitesmoke;
-    border: #e04b52 solid 1px;
-    color: #e04b52;
-  }
-  
-  /*name and image*/
-    .input-text {
-    border-radius: 5px;
-    height: 2rem;
-    width: 60%;
+    width: 40%;
     font-size: 18px;
     font-family: monospace;
     margin: 3px;
-  }
-  
+}
 
-
-
+.input-text {
+    border-radius: 5px;
+    height: 2rem;
+    width: 40%;
+    font-size: 18px;
+    font-family: monospace;
+    margin: 3px;
+}
