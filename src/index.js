@@ -31,9 +31,6 @@ function renderCards(cardArr) {
         <div>
             <img class='trash' src=${trashImg}>
         </div>
-        <div>
-            <img class='trash' src=${trashImg}>
-        </div>
         `
         const trash = cardDiv.querySelector('.trash')
         trash.addEventListener('click', deleteCard)
