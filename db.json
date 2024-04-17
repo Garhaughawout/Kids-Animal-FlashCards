@@ -3,46 +3,64 @@
     {
       "id": "1",
       "name": "Crocodile",
+      "spanish": "Cocodrilo",
+      "french": "Crocodile",
       "image": "https://media.istockphoto.com/id/1084216174/vector/cartoon-cute-crocodile-vector-illustration-of-funny-happy-alligator.jpg?s=612x612&w=0&k=20&c=3nIQia7_F3GYZ1mEJ5euZhOFuuVBIKhftOGkn7e11Mw="
     },
     {
       "id": "2",
       "name": "Turtle",
+      "spanish": "Tortuga",
+      "french": "Tortue",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOv5P2-Hg4akT1g2AUQ3vUFoOKydSk2T5iRoxBEIS7RpipybBWFgJpsEfhslp3-l6ZJN0&usqp=CAU"
     },
     {
       "id": "3",
       "name": "Fish",
+      "spanish": "Pez",
+      "french": "Poisson",
       "image": "https://media.istockphoto.com/id/1146585292/vector/cartoon-largemouth-bass.jpg?s=612x612&w=0&k=20&c=O963vUG77FB4GJQk7rxv8I5vjjlOMjy5gC3Vg1-_WeI="
     },
     {
       "id": "4",
       "name": "Dog",
+      "spanish": "Perro",
+      "french": "Chien",
       "image": "https://i.pinimg.com/736x/8b/c0/a6/8bc0a67ad5706f2ac894149559e8acb3.jpg"
     },
     {
       "id": "5",
       "name": "Cat",
+      "spanish": "Gato",
+      "french": "Chat",
       "image": "https://img.freepik.com/free-vector/little-cute-cat-cartoon-character_1308-140198.jpg"
     },
     {
       "id": "6",
       "name": "Owl",
+      "spanish": "Buho",
+      "french": "Hibou",
       "image": "https://t4.ftcdn.net/jpg/01/13/56/75/360_F_113567580_woNlHKKVX6CrnBoR0wwAh5yDALhTCEfy.jpg"
     },
     {
       "id": "7",
       "name": "Sheep",
+      "spanish": "Oveja",
+      "french": "Mouton",
       "image": "https://t3.ftcdn.net/jpg/05/90/17/26/360_F_590172680_mL0VBYGjt979JSmyNDpa1GKwz6ftViTF.jpg"
     },
     {
       "id": "8",
       "name": "Cow",
+      "spanish": "Vaca",
+      "french": "Vache",
       "image": "https://st.depositphotos.com/1967477/2737/v/450/depositphotos_27371729-stock-illustration-cute-cow-cartoon.jpg"
     },
     {
       "id": "9",
       "name": "Pig",
+      "spanish": "Cerdo",
+      "french": "Porc",
       "image": "https://thumbs.dreamstime.com/b/cartoon-pig-pointing-isolated-white-background-illustration-90768295.jpg"
     },
     {
