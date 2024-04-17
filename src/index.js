@@ -6,22 +6,27 @@ const url = "http://localhost:3000/cards"
 
 fetch(url)
     .then(resp => resp.json())
-    .then(data => renderCards(data))
+    .then(data =>  {
+        renderCards (data)
+        //grab the current value of select element
+        const langageSelected = document.querySelector('#language-select')
+        hideNonMatchingCard(langageSelected.value);
+    })
 
 function renderCards(cardArr) {
     console.log(cardArr)
     cardArr.forEach(card => {
         const cardDiv = document.createElement('div')
-        cardDiv.className = 'flashcard '
+        cardDiv.className = 'flashcard'
         cardDiv.innerHTML = `
         <div class="flashcard-front">
             <img class='flashCardImage' src= ${card.image}>
         </div>
         <div class="flashcard-back">
             <img class='flashCardImage' src= ${card.image}>
-            <h2 class='english'> ${card.name}</h2>
-            <h2 class='spanish hidden'> ${card.spanish}</h2>
-            <h2 class='french hidden'> ${card.french}</h2>
+            <h2 class='english'>${card.name}</h2>
+            <h2 class='spanish hidden'>${card.spanish}</h2>
+            <h2 class='french hidden'>${card.french}</h2>
         </div>
         <div>
             <img class='trash' src=${trashImg}>
@@ -33,7 +38,7 @@ function renderCards(cardArr) {
         const trash = cardDiv.querySelector('.trash')
         trash.addEventListener('click', deleteCard)
 
-        
+
         cardDiv.addEventListener('mouseover', () => {
             cardDiv.classList.toggle('hover')
         })
@@ -59,10 +64,16 @@ form.addEventListener('submit', (e) => {
     const lowerName = e.target.name.value.toLowerCase()
     const upperName = lowerName.charAt(0).toUpperCase() + lowerName.slice(1)
 
+    const lowerNameSpanish = e.target.spanish.value.toLowerCase()
+    const upperNameSpanish = lowerNameSpanish.charAt(0).toUpperCase() + lowerNameSpanish.slice(1)
+
+    const lowerNameFrench = e.target.french.value.toLowerCase()
+    const upperNameFrench = lowerNameFrench.charAt(0).toUpperCase() + lowerNameFrench.slice(1)
+
     const newCardObj = {
         name: upperName,
-        spanish: e.target.french.value,
-        french: e.target.spanish.value,
+        spanish: upperNameSpanish,
+        french: upperNameFrench,
         image: e.target.image.value
     }
     renderCards([newCardObj])
@@ -84,26 +95,36 @@ function renderNewCards() {
 }
 
 const languages = document.querySelector('#language-select');
-const changes = document.querySelector('.changed-language')
+const changes = document.querySelector('.changed-language');
+
+languages.addEventListener("reset", (e) => {
+    
+})
+//when langage is selected flip all cards to front
 
 languages.addEventListener("change", (e) => {
     const chosenLanguage = e.target.value
     const english = Array.from(document.getElementsByClassName('english'));
     const french = Array.from(document.getElementsByClassName('french'));
     const spanish = Array.from(document.getElementsByClassName('spanish'));
-    const cardContainer = document.querySelector('.flashcard-container');
-    const hideLanguages = (language) => language.forEach(language => 
-        {language.classList.add("hidden")
-if (language ==="" || language ===" "){
-    cardContainer.classList.add("hidden")
-    }
-});
+
+    //flipAllCards ();
+    hideNonMatchingCard (chosenLanguage);
+
+    const hideLanguages = (languages) => languages.forEach(languages => {
+        languages.classList.add("hidden")
+        if (languages === "" || languages === " ") {
+            cardContainer.classList.add("hidden");
+        }
+
+    });
+
     const showLanguages = (languages) => languages.forEach(languages => languages.classList.remove("hidden"));
-    
     if (chosenLanguage === "Spanish") {
         hideLanguages(english);
         hideLanguages(french);
         showLanguages(spanish);
+
     }
     else if (chosenLanguage === "French") {
         hideLanguages(english);
@@ -117,8 +138,36 @@ if (language ==="" || language ===" "){
     }
 })
 
-//when a language is selected, automatically flips all cards so no text is showing
-//
+function hideNonMatchingCard(chosenLanguage) {
+    const cards = Array.from(document.getElementsByClassName('flashcard'));
+    cards.forEach((card) => {
+        let hasEnglishOnCard = card.querySelector('.english').textContent !== "";
+        console.log(card.querySelector('.english').textContent)
+        let hasFrenchOnCard = card.querySelector('.french').textContent !== "";
+        let hasSpanishOnCard = card.querySelector('.spanish').textContent !== "";
+//if a card has a language match to the dropdown choice, then show the card
+//if it doesn't, hide the card
+console.log(card)
+console.log(hasSpanishOnCard)
+console.log(hasFrenchOnCard)
+console.log(hasEnglishOnCard)
+
+        if(chosenLanguage === "English" && hasEnglishOnCard){
+            card.style.display = "block";
+        }
+        else if(chosenLanguage === "French" && hasFrenchOnCard){
+            card.style.display = "block";
+        }
+        else if(chosenLanguage === "Spanish" && hasSpanishOnCard){
+            card.style.display = "block";
+        }
+        else{
+            card.style.display = "none";
+            console.log(card)
+        }
+
+    })
+}
 
 function deleteCard(e) {
     const card = e.target.closest('.flashcard')
@@ -128,3 +177,4 @@ function deleteCard(e) {
         method: 'DELETE'
     })
 }
+
