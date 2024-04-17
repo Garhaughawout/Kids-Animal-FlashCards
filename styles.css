@@ -1,4 +1,3 @@
-
 /* boarder around cards
 image of animal on the front with boarder
 trashcan icon in lower left corner 
@@ -18,17 +17,28 @@ html {
     border: none;
 }
 
-.flashcard-header {
-    display: flex;
+.page-header {
     justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    position: fixed;
-    top: 0;
+    text-align: center;
+    padding: 10px 10px;
     width: 100%;
     z-index: 1000;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #b6b5b5;
+    background: #515DA2;
+    opacity: .8;
+}
+
+#title {
+    font-size: 3.5rem;
+}
+
+#label {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#language-select {
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 .flashcard-container {
@@ -51,7 +61,7 @@ html {
     transform-style: preserve-3d;
     transition: all .8s ease;
     margin: 10px auto;
-    
+
 }
 
 .flashcard-front {
@@ -79,14 +89,18 @@ html {
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 .flipCard {
     transform: rotateY(180deg);
 }
 
 
 .flashCardImage {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin: 10px auto;
 }
 
@@ -97,46 +111,27 @@ html {
 }
 
 .form-container {
-    padding: 1rem;
-    width: stretch;
     height: auto;
     background: #515DA2;
     opacity: .8;
-    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
 }
 
-.add-toy-form {
-    width: 90%;
-    position: relative;
-    justify-self: center;
-}
-
-  /*submit create card*/
-  .submit {
-    position: relative;
-    background-color: #e04b52;
+#form-language-select {
     border-radius: 5px;
     height: 2rem;
-    width: max-content;
-    color: whitesmoke;
+    width: 40%;
     font-size: 18px;
-    justify-self: center;
     font-family: monospace;
     margin: 3px;
-  }
+}
 
-  /*submit create card*/
-  .submit:hover {
-    background-color: whitesmoke;
-    border: #e04b52 solid 1px;
-    color: #e04b52;
-  }
-  
-  /*name and image*/
-    .input-text {
+.input-text {
     border-radius: 5px;
     height: 2rem;
-    width: 60%;
+    width: 40%;
     font-size: 18px;
     font-family: monospace;
     margin: 3px;
@@ -153,6 +148,10 @@ html {
     height: 30px;
   }
   
-
-
-
+#new-card-btn {
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .7);
+    margin-bottom: 2%;
+    padding: 10px 10px;
+}
