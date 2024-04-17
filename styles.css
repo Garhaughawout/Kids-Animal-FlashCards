@@ -3,6 +3,34 @@ image of animal on the front with boarder
 trashcan icon in lower left corner 
 */
 
+.body {
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.body {
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 .page-header {
     justify-content: center;
     text-align: center;
@@ -34,7 +62,6 @@ trashcan icon in lower left corner
     height: 1500px;
     justify-content: center;
     align-items: center;
-    /* border: rgba(0, 0, 0, 0.5) 2.5px solid; */
     margin: 100px auto;
 }
 
@@ -122,6 +149,23 @@ trashcan icon in lower left corner
     font-size: 18px;
     font-family: monospace;
     margin: 3px;
+  }
+
+
+  .trash {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+  
+
+
+
+
 }
 
 #new-card-btn {

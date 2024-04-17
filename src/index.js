@@ -1,5 +1,7 @@
 const cardContainer = document.querySelector('.flashcard-container');
 
+const trashImg = "https://cdn-icons-png.flaticon.com/512/2891/2891491.png"
+
 const url = "http://localhost:3000/cards"
 
 fetch(url)
@@ -21,8 +23,17 @@ function renderCards(cardArr) {
             <h2 class='spanish hidden'> ${card.spanish}</h2>
             <h2 class='french hidden'> ${card.french}</h2>
         </div>
+        <div>
+            <img class='trash' src=${trashImg}>
+        </div>
+        <div>
+            <img class='trash' src=${trashImg}>
+        </div>
         `
+        const trash = cardDiv.querySelector('.trash')
+        trash.addEventListener('click', deleteCard)
 
+        
         cardDiv.addEventListener('mouseover', () => {
             cardDiv.classList.toggle('hover')
         })
@@ -44,8 +55,12 @@ const form = document.querySelector('.add-toy-form')
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
+    console.log("hi")
+    const lowerName = e.target.name.value.toLowerCase()
+    const upperName = lowerName.charAt(0).toUpperCase() + lowerName.slice(1)
+
     const newCardObj = {
-        name: e.target.name.value,
+        name: upperName,
         spanish: e.target.french.value,
         french: e.target.spanish.value,
         image: e.target.image.value
@@ -104,3 +119,12 @@ if (language ==="" || language ===" "){
 
 //when a language is selected, automatically flips all cards so no text is showing
 //
+
+function deleteCard(e) {
+    const card = e.target.closest('.flashcard')
+    card.remove()
+    const id = card.id
+    fetch(`http://localhost:3000/cards/${id}`, {
+        method: 'DELETE'
+    })
+}
