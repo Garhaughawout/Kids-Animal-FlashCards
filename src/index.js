@@ -6,8 +6,8 @@ const url = "http://localhost:3000/cards"
 
 fetch(url)
     .then(resp => resp.json())
-    .then(data =>  {
-        renderCards (data)
+    .then(data => {
+        renderCards(data)
         //grab the current value of select element
         const langageSelected = document.querySelector('#language-select')
         hideNonMatchingCard(langageSelected.value);
@@ -95,7 +95,7 @@ const languages = document.querySelector('#language-select');
 const changes = document.querySelector('.changed-language');
 
 languages.addEventListener("reset", (e) => {
-    
+
 })
 //when langage is selected flip all cards to front
 
@@ -104,35 +104,42 @@ languages.addEventListener("change", (e) => {
     const english = Array.from(document.getElementsByClassName('english'));
     const french = Array.from(document.getElementsByClassName('french'));
     const spanish = Array.from(document.getElementsByClassName('spanish'));
+    ShowAllCardFronts();
 
-    //flipAllCards ();
-    hideNonMatchingCard (chosenLanguage);
+    setTimeout(() => {
+        console.log('1 second passed');
+        hideNonMatchingCard(chosenLanguage);
 
-    const hideLanguages = (languages) => languages.forEach(languages => {
-        languages.classList.add("hidden")
-        if (languages === "" || languages === " ") {
-            cardContainer.classList.add("hidden");
+        const hideLanguages = (languages) => languages.forEach(languages => {
+            languages.classList.add("hidden")
+            if (languages === "" || languages === " ") {
+                cardContainer.classList.add("hidden");
+            }
+
+        });
+
+        const showLanguages = (languages) => languages.forEach(languages => languages.classList.remove("hidden"));
+        if (chosenLanguage === "Spanish") {
+            hideLanguages(english);
+            hideLanguages(french);
+            showLanguages(spanish);
+
+        }
+        else if (chosenLanguage === "French") {
+            hideLanguages(english);
+            showLanguages(french);
+            hideLanguages(spanish);
+        }
+        else {
+            showLanguages(english);
+            hideLanguages(french);
+            hideLanguages(spanish);
         }
 
-    });
 
-    const showLanguages = (languages) => languages.forEach(languages => languages.classList.remove("hidden"));
-    if (chosenLanguage === "Spanish") {
-        hideLanguages(english);
-        hideLanguages(french);
-        showLanguages(spanish);
+    }, 1000);
+    //flipAllCards ();
 
-    }
-    else if (chosenLanguage === "French") {
-        hideLanguages(english);
-        showLanguages(french);
-        hideLanguages(spanish);
-    }
-    else {
-        showLanguages(english);
-        hideLanguages(french);
-        hideLanguages(spanish);
-    }
 })
 
 function hideNonMatchingCard(chosenLanguage) {
@@ -142,28 +149,29 @@ function hideNonMatchingCard(chosenLanguage) {
         console.log(card.querySelector('.english').textContent)
         let hasFrenchOnCard = card.querySelector('.french').textContent !== "";
         let hasSpanishOnCard = card.querySelector('.spanish').textContent !== "";
-//if a card has a language match to the dropdown choice, then show the card
-//if it doesn't, hide the card
-console.log(card)
-console.log(hasSpanishOnCard)
-console.log(hasFrenchOnCard)
-console.log(hasEnglishOnCard)
+        //if a card has a language match to the dropdown choice, then show the card
+        //if it doesn't, hide the card
+        console.log(card)
+        console.log(hasSpanishOnCard)
+        console.log(hasFrenchOnCard)
+        console.log(hasEnglishOnCard)
 
-        if(chosenLanguage === "English" && hasEnglishOnCard){
+        if (chosenLanguage === "English" && hasEnglishOnCard) {
             card.style.display = "block";
         }
-        else if(chosenLanguage === "French" && hasFrenchOnCard){
+        else if (chosenLanguage === "French" && hasFrenchOnCard) {
             card.style.display = "block";
         }
-        else if(chosenLanguage === "Spanish" && hasSpanishOnCard){
+        else if (chosenLanguage === "Spanish" && hasSpanishOnCard) {
             card.style.display = "block";
         }
-        else{
+        else {
             card.style.display = "none";
             console.log(card)
         }
 
     })
+
 }
 
 function deleteCard(e) {
@@ -175,3 +183,12 @@ function deleteCard(e) {
     })
 }
 
+function ShowAllCardFronts() {
+    //remove class flipCard
+    //from every flashcard
+    //get all ements by class
+    var cards = Array.from(document.getElementsByClassName("flashcard"));
+    cards.forEach(x => {
+        x.classList.remove("flipCard")
+    })
+}
